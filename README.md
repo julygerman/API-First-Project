@@ -1,4 +1,4 @@
-# Super Trivia!
+# Supeeerrr Trivia!
 ### Description: 
 This Flashy and Quick trivia game will Quiz your knowledge of the DC Universe (Disclaimer for those who don't know its anything that has to do with Batman, Superman, Wonder Woman, and their Wacky friends!)
  
