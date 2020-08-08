@@ -16,8 +16,54 @@
 
 
 
+/*------Constants------*/
+
+/*------Variables (state)------*/
+let winner, choices, comicBook, lives
+let question = [];
+// let choice1 = [];
+// let choice2 = [];
+// let choice3 = [];
+// let choice4 = [];
+let isWinner = false;
+let lives = 3;
+
+
+/*------Cached Element References------*/
+
+let gamestatus = document.getElementById('mainMessage')
+let bigPicture = document.getElementById('mainPicture')
+let q = document.getElementById('question')
+let c1 = document.getElementById('firstChoice')
+let c2 = document.getElementById('secondChoice')
+let c3 = document.getElementById('thirdChoice')
+let c4 = document.getElementById('fourthChoice')
 
 
 
 
-// credit Image by <a href="https://pixabay.com/users/TyrusTime-13018745/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4335468">TyrusTime</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4335468">Pixabay</a>
+/*------Event Listeners------*/
+
+
+
+/*------Functions------*/
+
+
+
+
+function isWinner(){
+    if (question[0] === true && question[1] === true && question[2] === true && question[3] === true && question[4] === true && question[5] === true && question[6] === true && question[7] === true && question[8] === true && question[9] === true) {
+        gamestatus.textContent = `What? You did it? You've must have cheated. There is no way you could beat me. You cheated, You couldn't have outsmarted me!`
+        isWinner = true
+        // if player gets 1 question wrong he is loses a life 
+        // player starts of with 3 lives
+    } else {
+        gamestatus.textContent = `Fail! Not so easy now, is it? Frustrating, isn't it? Take some time to wrap your feeble mind around where you went wrong and try again.`
+    }
+}
+
+
+ 
+
+
+

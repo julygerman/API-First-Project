@@ -1,0 +1,42 @@
+html {
+    box-sizing: border-box
+  }
+ 
+  /* The Universal Selector */
+  *, /* All elements*/
+  *::before, /* All ::before pseudo-elements */
+  *::after { /* All ::after pseudo-elements */
+    /* height & width will now include border & padding by default
+       but can be over-ridden as needed */
+    box-sizing: inherit;
+    
+  }
+
+
+
+body{
+    background-image: url(/Pictures/Riddler-Background.png);
+    background-size: cover;
+    display: flex;
+    
+    height: 100vh;
+    margin: 0;
+}
+
+button {
+flex-direction: row;
+justify-content: center;
+height: 5vh;
+margin: 800px -450px 0 475px;
+
+}
+h1{
+    text-align: center;
+}
+h3{
+    text-align: center;
+}
+p{
+    font-size: x-large ;
+    text-align: center;
+}
