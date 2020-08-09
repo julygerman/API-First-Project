@@ -8,31 +8,41 @@
     <link rel="stylesheet" href="css/syle.css">
     <script defer src="js/main.js"></script>
     <title>Supeeerrr Trivia!</title>
+
     </head>
-<body class="container">
+<body class="container" style=" --image-url: url(https://cdn.wallpapersafari.com/25/12/BHlArU.jpg)">
+    
     <div>
         <h1>The Riddler Strikes Again</h1>
     </div>
     
     <div>
         <div id="mainMessage" class="comic">
-            <h3>"I, Edward Nigma, have placed a dazzling selection of questions. Can you solve them all? Will you find all my will you save these pathetic heroes?
+            <h3 id="firstH3">"I, Edward Nigma, have placed a dazzling selection of questions.
             </h3>
+            <h3 id="secondH3">Can you solve them all? Will you find all my will you save these pathetic heroes?</h3>
             <p>Are you ready to give up yet? Your puny mind is no match for my own."</p>
         </div>
+        <div id="page1" class="pages">
             <div id="mainPicture" class="comic"></div>
             <div id="questions" class="comic"></div>
-            <div id="firstChoice" class="comic"></div>
-            <div id="secondChoice" class="comic"></div>
-            <div id="thirdChoice" class="comic"></div>
-            <div id="fourthChoice" class="comic"></div>
 
+        </div>
+        
+    <div id="page2" class="pages">
 
+            <button id="firstChoice" class="comic">A)</button>
+            <button id="secondChoice" class="comic">B)</buttonv>
+            <button id="thirdChoice" class="comic">C)</button>
+            <button id="fourthChoice" class="comic">D)</button>
+            
+     </div>
+            
 
 
 
         
-            <button id="strtButton" class="btn btn-success btn-lg">Start</button>
+        
             <button id="resetButton" class="btn btn-Deanger btn-lg">Reset</button>
     
     </div>

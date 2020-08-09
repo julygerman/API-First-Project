@@ -19,7 +19,7 @@
 /*------Constants------*/
 
 /*------Variables (state)------*/
-let winner, choices, comicBook, lives
+let winner, choices, comicBook
 let question = [];
 // let choice1 = [];
 // let choice2 = [];
@@ -38,20 +38,31 @@ let c1 = document.getElementById('firstChoice')
 let c2 = document.getElementById('secondChoice')
 let c3 = document.getElementById('thirdChoice')
 let c4 = document.getElementById('fourthChoice')
-
+let resetBtn = document.getElementById('resetButton')
 
 
 
 /*------Event Listeners------*/
 
-
-
+// document.querySelector('section.div').addEventListener('click', onClick);
+resetBtn.addEventListener('click', init)
+c1.addEventListener('click')
+c2.addEventListener('click')
+c3.addEventListener('click')
+c4.addEventListener('click')
 /*------Functions------*/
+//init()
+function init(){
+
+}
 
 
+function onClick(){
+
+}
 
 
-function isWinner(){
+function getWinner(){
     if (question[0] === true && question[1] === true && question[2] === true && question[3] === true && question[4] === true && question[5] === true && question[6] === true && question[7] === true && question[8] === true && question[9] === true) {
         gamestatus.textContent = `What? You did it? You've must have cheated. There is no way you could beat me. You cheated, You couldn't have outsmarted me!`
         isWinner = true
@@ -65,5 +76,7 @@ function isWinner(){
 
  
 
+function render(){
 
+}
 
