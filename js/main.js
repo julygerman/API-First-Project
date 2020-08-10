@@ -131,6 +131,16 @@ function setStatusClass(element, correct){
     }
 }
 
+function clearStatusClass(element){
+element.classList.remove('corect');
+element.classList.remove('wrong');
+//element.classList.remove('effect')
+}
+
+function displayLives(){
+    
+}
+
 
  
 
