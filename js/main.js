@@ -20,7 +20,7 @@
 /*------Constants------*/
 
 /*------Variables (state)------*/
-let currentQuestionsIndex;
+let currentQuestionsIndex, sortQuestions;
 let wrongAnswer = 0; 
 
 
@@ -29,6 +29,8 @@ const contentElement = getElementById('questionContent')
 const questionElement = document.getElementById('questions')
 const gameStatus = document.getElementById('mainMessage')
 const answersElement = document.getElementById('answerButtons')
+const startContent = document.getElementById('startMessage')
+const startBtn = document.getElementById('startButton')
 const nxtBtn = document.getElementById('nextButton')
 const resetBtn = document.getElementById('resetButton')
 const thirdlife = document.getElementById('threeLives')
@@ -43,13 +45,14 @@ const endGame = document.getElementById('loser')
 /*------Event Listeners------*/
 
 // document.querySelector('section.div').addEventListener('click', onClick);
+startBtn.addEventListener('click', startGame)
 resetBtn.addEventListener('click', init)
 nxtBtn.addEventListener('click', ()=> {
     currentQuestionsIndex++;
     setNextQuestion();
 });
 /*------Functions------*/
-//init()
+init()
 function init(){
 resetStatus(document.body);
 nxtBtn.classList.add('hide')
@@ -57,10 +60,47 @@ nxtBtn.classList.add('hide')
 while (answersElement.firstChild){
     answersElement.removeChild(answersElement.firstChild)
     }
-    
+    startGame();
 }
 
+function startGame(){
+startBtn.classList.add('hide');
+startContent.classList.add('hide');
+sortQuestions = questions.sort(()=> questions.length)
+currentQuestionsIndex = 0;
+wrongAnswer = 0;
+contentElement.classList.remove('hide');
+setNextQuestion();
+getWinner.classList.add('hide');
+endGame.classList.add('hide');
+thirdlife.classList.remove('hide');
+secondLife.classList.add('hide')
+lastLife.classList.add('hide')
+fatality.classList.remove('hide')
+}
 
+function setNextQuestion(){
+    init();
+    displayQuestion(sortQuestions[currentQuestionsIndex])
+}
+
+function displayQuestion(question){
+questionElement.innerText = question.question;
+question.answers.forEach((answer)=> {
+    const button = documnet.createElement('button')
+    button.innerText =answer.text;
+    button.classList.add('button');
+    if (answer.correct){
+        button.dataset.correct = answer.correct;
+        if (correct){
+            // render riddler quip
+        } else {
+            wrongAnswer++;
+            displayLives();
+        }      
+        }
+    });
+}
 
 function getWinner(){
     if (question[0] === true && question[1] === true && question[2] === true && question[3] === true && question[4] === true && question[5] === true && question[6] === true && question[7] === true && question[8] === true && question[9] === true) {
