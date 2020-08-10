@@ -9,42 +9,46 @@
     <script defer src="js/main.js"></script>
     <title>Supeeerrr Trivia!</title>
 
-    </head>
-<body class="container" style=" --image-url: url(https://cdn.wallpapersafari.com/25/12/BHlArU.jpg)">
-    
-    <div>
-        <h1>The Riddler Strikes Again</h1>
-    </div>
-    
-    <div>
-        <div id="mainMessage" class="comic">
+</head>
+ <body>
+
+<div class="container" style=" --image-url: url(https://cdn.wallpapersafari.com/25/12/BHlArU.jpg)">
+    <div id="mainMessage" class="comic">
+            <h1>The Riddler Strikes Again</h1>
             <h3 id="firstH3">"I, Edward Nigma, have placed a dazzling selection of questions.
             </h3>
             <h3 id="secondH3">Can you solve them all? Will you find all my will you save these pathetic heroes?</h3>
             <p>Are you ready to give up yet? Your puny mind is no match for my own."</p>
-        </div>
-        <div id="page1" class="pages">
-            <div id="mainPicture" class="comic"></div>
-            <div id="questions" class="comic"></div>
-
-        </div>
-        
-    <div id="page2" class="pages">
-
-            <button id="firstChoice" class="comic">A)</button>
-            <button id="secondChoice" class="comic">B)</buttonv>
-            <button id="thirdChoice" class="comic">C)</button>
-            <button id="fourthChoice" class="comic">D)</button>
-            
-     </div>
-            
-
-
-
-        
-        
-            <button id="resetButton" class="btn btn-Deanger btn-lg">Reset</button>
-    
     </div>
+            <div id="lives" class="pages">
+                <img id="noLives" class="life hide" src="/Pictures/no-questionMarks.png" alt="no lives left">
+                <img id="oneLife" class="life hide" src="/Pictures/question marker.png" alt="one life remaining">
+                <img id="twoLives" class="life hide" src="/Pictures/2-QuestionMarks.png" alt="two lives remaining">
+                <img id="threeLives" class="life hide" src="/Pictures/3- QuestionMarks .png" alt="all lives remaining">
+            </div>
+
+            <div>
+                <img id="loser" class="background hide" src="/Pictures/Batmannanananananananananananan.jpg" alt="you lose">
+                
+            </div>  
+</div>
+        
+    <div class="content">
+            <div id="questionContent" class="hide">
+            <div id="questions">Question</div>
+            <div id="answerButtons" class="btnConfig">
+                <button class="button">Answer 1</button>
+                <button class="button">Answer 2</button>
+                <button class="button">Answer 3</button>
+                <button class="button">Answer 4</button>
+            </div>
+            </div>
+    </div>
+    <div class="utility">
+        <button id="resetButton" type="button" class="btn btn-danger btn-lg">Reset</button>
+        <button id="nextButton" type="button" class="btn btn-success hide">Next</button>
+    </div>   
+</div>
+
 </body>
 </html>

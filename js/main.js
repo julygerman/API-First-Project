@@ -14,31 +14,29 @@
 // Write Objectives
 // Write User Stories
 
-
+// Questions:
+// Who killed Martha and Thomas Wayne? T: Joe Chill F;
 
 /*------Constants------*/
 
 /*------Variables (state)------*/
-let winner, choices, comicBook
-let question = [];
-// let choice1 = [];
-// let choice2 = [];
-// let choice3 = [];
-// let choice4 = [];
-let isWinner = false;
-let lives = 3;
+let currentQuestionsIndex;
+let wrongAnswer = 0; 
 
 
 /*------Cached Element References------*/
+const contentElement = getElementById('questionContent')
+const questionElement = document.getElementById('questions')
+const gameStatus = document.getElementById('mainMessage')
+const answersElement = document.getElementById('answerButtons')
+const nxtBtn = document.getElementById('nextButton')
+const resetBtn = document.getElementById('resetButton')
+const thirdlife = document.getElementById('threeLives')
+const secondLife = document.getElementById('twoLives')
+const lastLife = document.getElementById('oneLife')
+const fatality = document.getElementById('noLives')
+const endGame = document.getElementById('loser')
 
-let gamestatus = document.getElementById('mainMessage')
-let bigPicture = document.getElementById('mainPicture')
-let q = document.getElementById('question')
-let c1 = document.getElementById('firstChoice')
-let c2 = document.getElementById('secondChoice')
-let c3 = document.getElementById('thirdChoice')
-let c4 = document.getElementById('fourthChoice')
-let resetBtn = document.getElementById('resetButton')
 
 
 
@@ -46,20 +44,22 @@ let resetBtn = document.getElementById('resetButton')
 
 // document.querySelector('section.div').addEventListener('click', onClick);
 resetBtn.addEventListener('click', init)
-c1.addEventListener('click')
-c2.addEventListener('click')
-c3.addEventListener('click')
-c4.addEventListener('click')
+nxtBtn.addEventListener('click', ()=> {
+    currentQuestionsIndex++;
+    setNextQuestion();
+});
 /*------Functions------*/
 //init()
 function init(){
+resetStatus(document.body);
+nxtBtn.classList.add('hide')
 
+while (answersElement.firstChild){
+    answersElement.removeChild(answersElement.firstChild)
+    }
+    
 }
 
-
-function onClick(){
-
-}
 
 
 function getWinner(){
