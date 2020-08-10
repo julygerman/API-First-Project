@@ -166,8 +166,3 @@ function displayLives(){
 }
 
  
-
-function render(){
-
-}
-
