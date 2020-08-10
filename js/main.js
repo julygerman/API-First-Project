@@ -165,4 +165,36 @@ function displayLives(){
     }
 }
 
- 
+ const questions = [
+     {
+         question: "My civilian name is Barry Allen. I'm a police scientist. My alter ego only has one power, but what DC writers and artists did with that one power was something to behold. Despite my power, I was usually late for appointments in my civilian identity. Who am I?",
+         // add 'quip' key to insert quotes,
+         answers: [
+             {
+                 text: "The Atom",
+                 correct: false,
+             },
+             {
+                 text: "The Flash",
+                 correct: true,
+             },
+             {
+                 text: "Hawkman",
+                 correct: false,
+             },
+             {
+                 text: "Zoom",
+                 correct: false,
+             },
+         ],
+     },
+     {
+         question: `What did Superman use to open the door of his "Fortress of Solitude"?`,
+         // add quip
+        answers: [
+            {
+                text: ``
+            },
+        ],
+     },
+ ]
