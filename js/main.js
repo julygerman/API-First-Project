@@ -138,9 +138,32 @@ element.classList.remove('wrong');
 }
 
 function displayLives(){
-    
+    if (wrongAnswer === 0) {
+        lastLife.classList.add('hide');
+        secondLife.classList.add('hide');
+    }
+    if (wrongAnswer === 1) {
+        lastLife.classList.add('hide');
+        secondLife.classList.remove('hide');
+        thirdlife.classList.add('hide');
+        // add set timeout
+    }
+    if (wrongAnswer === 2) {
+        lastLife.classList.remove('hide');
+        secondLife.classList.add('hide');
+        thirdlife.classList.add('hide');
+        // add set timerout
+    }
+    if (wrongAnswer === 3) {
+        nxtBtn.classList.add('hide');
+        lastLife.classList.add('hide');
+        fatality.classList.remove('hide')
+        resetBtn.classList.remove('hide')
+        // add music
+        fatality.classList.remove('hide')
+        // add pause to music
+    }
 }
-
 
  
 
