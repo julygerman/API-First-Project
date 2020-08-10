@@ -38,6 +38,7 @@ const secondLife = document.getElementById('twoLives')
 const lastLife = document.getElementById('oneLife')
 const fatality = document.getElementById('noLives')
 const endGame = document.getElementById('loser')
+const wonMessage = document.getElementById('winningMessage')
 
 
 
@@ -45,14 +46,13 @@ const endGame = document.getElementById('loser')
 /*------Event Listeners------*/
 
 // document.querySelector('section.div').addEventListener('click', onClick);
-startBtn.addEventListener('click', startGame)
-resetBtn.addEventListener('click', init)
+startBtn.addEventListener('click', render)
+resetBtn.addEventListener('click', render)
 nxtBtn.addEventListener('click', ()=> {
     currentQuestionsIndex++;
     setNextQuestion();
 });
 /*------Functions------*/
-init();
 
 function init(){
 resetStatus(document.body);
@@ -61,23 +61,22 @@ nxtBtn.classList.add('hide')
 while (answersElement.firstChild){
     answersElement.removeChild(answersElement.firstChild)
     }
-    startGame();
 }
 
-function startGame(){
+function render(){
 startBtn.classList.add('hide');
 startContent.classList.add('hide');
-sortQuestions = questions.sort(()=> questions.length)
+sortQuestions = questions.sort(() => questions.length);
 currentQuestionsIndex = 0;
 wrongAnswer = 0;
 contentElement.classList.remove('hide');
 setNextQuestion();
-getWinner.classList.add('hide');
+wonMessage.classList.add('hide');
 endGame.classList.add('hide');
 thirdlife.classList.remove('hide');
-secondLife.classList.add('hide')
-lastLife.classList.add('hide')
-fatality.classList.remove('hide')
+secondLife.classList.add('hide');
+lastLife.classList.add('hide');
+fatality.classList.remove('hide');
 }
 
 function setNextQuestion(){
@@ -88,7 +87,7 @@ function setNextQuestion(){
 function displayQuestion(question){
 questionElement.innerText = question.question;
 question.answers.forEach((answer)=> {
-    const button = documnet.createElement('button')
+    const button = document.createElement('button')
     button.innerText =answer.text;
     button.classList.add('button');
     if (answer.correct){
@@ -122,7 +121,7 @@ if (correct) {
 }
 
 function setStatusClass(element, correct){
-    clearStatusClass(element);
+    resetStatus(element);
     if (correct){
         element.classList.add('correct');
     } else {
@@ -131,7 +130,7 @@ function setStatusClass(element, correct){
     }
 }
 
-function clearStatusClass(element){
+function resetStatus(element){
 element.classList.remove('corect');
 element.classList.remove('wrong');
 //element.classList.remove('effect')
@@ -387,7 +386,4 @@ function displayLives(){
              },
          ],
      },
-     {
-         question: ``,
-     },
- ]
+ ];
