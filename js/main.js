@@ -168,7 +168,8 @@ function displayLives(){
  const questions = [
      {
          question: "My civilian name is Barry Allen. I'm a police scientist. My alter ego only has one power, but what DC writers and artists did with that one power was something to behold. Despite my power, I was usually late for appointments in my civilian identity. Who am I?",
-         // add 'quip' key to insert quotes,
+         // add 'quip' key and insert quotes,
+         // quip: "I start you off with a softball"
          answers: [
              {
                  text: "The Atom",
@@ -190,11 +191,93 @@ function displayLives(){
      },
      {
          question: `What did Superman use to open the door of his "Fortress of Solitude"?`,
-         // add quip
+         // add quip,
         answers: [
             {
-                text: ``
+                text: `His super whistle`,
+                correct: false,
+            },
+            {
+                text: `Voice Activation`,
+                correct: false,
+            },
+            {
+                text: `Kryptonite`,
+                correct: false,
+            },
+            {
+                text: `A huge, yellow, arrow shaped key`,
+                correct: true,
             },
         ],
+     },
+     {
+         question: `What's missing here? "In brightest day, in blackest night, no evil can escape my sight! Let those who worship evil's might, beware my power, ______!"`,
+         // add quip,
+         answers: [
+             {
+                 text: `The Power of Night!`,
+                 correct: false,
+             },
+             {
+                 text: `My Grandma's Rice!`,
+                 corect: false,
+             },
+             {
+                 text: `Black Lantern's Blight`,
+                 correct: false,
+             },
+             {
+                 text: `Green Lantern's Light`,
+                 correct: true,
+             },
+         ],
+     },
+     {
+         question: `What was the name of Green Arrow's sidekick during his "Batman"-like days?`,
+         // add quip,
+         answers: [
+             {
+                 text: `Speedy`,
+                 correct: true,
+             },
+             {
+                 text: `Arrow Lad`,
+                 correct: false,
+             },
+             {
+                 text: `Lance`,
+                 correct: false,
+             },
+             {
+                 text: `Lil'Arrow`,
+                 correct: false,
+             },
+         ],
+     },
+     {
+         question: `How did the Flash travel through time?`,
+         // add quip,
+         answers: [
+             {
+                 text: `His "Cosmic Treadmill"`,
+                 correct: true,
+             },
+             {
+                 text: `He ran counter to the rotation of the Earth really really fast`,
+                 correct: false,
+             },
+             {
+                 text: `He used his time machine`,
+                 correct: false,
+             },
+             {
+                 text: `He clicked his heels together three times and wished himself there`,
+                 correct: false,
+             },
+         ],
+     },
+     {
+         question:
      },
  ]
