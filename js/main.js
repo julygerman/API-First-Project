@@ -25,7 +25,7 @@ let wrongAnswer = 0;
 
 
 /*------Cached Element References------*/
-const contentElement = getElementById('questionContent')
+const contentElement = document.getElementById('questionContent')
 const questionElement = document.getElementById('questions')
 const gameStatus = document.getElementById('mainMessage')
 const answersElement = document.getElementById('answerButtons')
@@ -52,7 +52,8 @@ nxtBtn.addEventListener('click', ()=> {
     setNextQuestion();
 });
 /*------Functions------*/
-init()
+init();
+
 function init(){
 resetStatus(document.body);
 nxtBtn.classList.add('hide')
@@ -91,27 +92,36 @@ question.answers.forEach((answer)=> {
     button.innerText =answer.text;
     button.classList.add('button');
     if (answer.correct){
-        button.dataset.correct = answer.correct;
-        if (correct){
-            // render riddler quip
-        } else {
-            wrongAnswer++;
-            displayLives();
-        }      
+        button.dataset.correct = answer.correct;   
         }
+        button.addEventListener('click', getWinner);
+        answersElement.appendChild(button);
     });
 }
 
-function getWinner(){
-    if (question[0] === true && question[1] === true && question[2] === true && question[3] === true && question[4] === true && question[5] === true && question[6] === true && question[7] === true && question[8] === true && question[9] === true) {
-        gamestatus.textContent = `What? You did it? You've must have cheated. There is no way you could beat me. You cheated, You couldn't have outsmarted me!`
-        isWinner = true
-        // if player gets 1 question wrong he is loses a life 
-        // player starts of with 3 lives
+function getWinner(e){
+const buttonChose = e.target;
+const correct = buttonChose.dataset.correct;
+if (correct) {
+    // render sarcastic Riddler quote
+    }   else {
+        wrongAnswer++;
+        // render arrogant Riddler quote
+        displayLives();
+    }
+    setStatusClass(document.body, correct);
+    Array.from(answersElement.children).forEach((button)=> {
+        setStatusClass(button, button.dataset.correct);
+    });
+    if (sortQuestions.length > currentQuestionsIndex + 1){
+        if(wrongAnswer != 3) nxtBtn.classList.remove('hide');
     } else {
-        gamestatus.textContent = `Fail! Not so easy now, is it? Frustrating, isn't it? Take some time to wrap your feeble mind around where you went wrong and try again.`
+        resetBtn.classList.remove('hide');
+        // add if statement to declare winner
     }
 }
+
+
 
 
  
