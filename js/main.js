@@ -278,6 +278,50 @@ function displayLives(){
          ],
      },
      {
-         question:
+         question: `Who paralyzed Barbara Gordon(aka BatGirl)`,
+         // add quip,
+         answers: [
+             {
+                 text: `ManBat`,
+                 correct: false,
+             },
+             {
+                 text: `Two-Face`,
+                 correct: false,
+             },
+             {
+                 text: `Harley-Quinn`,
+                 correct: false,
+             },
+             {
+                 text: `The Joker`,
+                 correct: true,
+             },
+         ],
+     },
+     {
+         question: `Who killed Superman?`,
+         // add quip,
+         answers: [
+             {
+                 text: `Doomsday`,
+                 correct: true,
+             },
+             {
+                 text: `Lex Luther`,
+                 correct: false,
+             },
+             {
+                 text: `Darkseid`,
+                 correct: false,
+             },
+             {
+                 text: `Louis Lane`,
+                 correct: false,
+             },
+         ],
+     },
+     {
+         question: ``,
      },
  ]
