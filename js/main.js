@@ -322,6 +322,72 @@ function displayLives(){
          ],
      },
      {
+         question: `Which Hero lost their father in a plane crash at an early age?`,
+         // add quip,
+         answers: [
+             {
+                 text: `Superman`,
+                 correct: false,
+             },
+             {
+                 text: `Synestro`,
+                 correct: false,
+             },
+             {
+                 text: `Green Lantern`,
+                 correct: true,
+             },
+             {
+                 text: `Wonder Woman`,
+                 correct: false,
+             },
+         ],
+     },
+     {
+         question: `What is Wonder Womans's Best interrogation tool?`,
+         //add quip,
+         answers: [
+             {
+                 text: `Her fists`,
+                 correct: false,
+             },
+             {
+                 text: `Her charm`,
+                 correct: false,
+             },
+             {
+                 text: `Her Lasso of truth`,
+                 correct: true,
+             },
+             {
+                 text: `She doesn't have any`,
+                 correct: false,
+             },
+         ],
+     },
+     {
+         question: `Other than Kryptonite, What is Superman weak too?`,
+         // add quip,
+         answers: [
+             {
+                 text: `Magic`,
+                 correct: true,
+             },
+             {
+                 text: `The Sun`,
+                 correct: false,
+             },
+             {
+                 text: `Louis Lane`,
+                 correct: `false`,
+             },
+             {
+                 text: `None of the above`,
+                 corect: false,
+             },
+         ],
+     },
+     {
          question: ``,
      },
  ]
