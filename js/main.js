@@ -22,12 +22,14 @@
 /*------Variables (state)------*/
 let currentQuestionsIndex, sortQuestions;
 let wrongAnswer = 0; 
+score = 0;
 
 
 /*------Cached Element References------*/
 const contentElement = document.getElementById('questionContent')
 const questionElement = document.getElementById('questions')
 const gameStatus = document.getElementById('mainMessage')
+const score = document.getElementById('gameScore')
 const answersElement = document.getElementById('answerButtons')
 const startContent = document.getElementById('startMessage')
 const startBtn = document.getElementById('startButton')
@@ -61,6 +63,7 @@ nxtBtn.classList.add('hide')
 while (answersElement.firstChild){
     answersElement.removeChild(answersElement.firstChild)
     }
+
 }
 
 function render(){
@@ -69,8 +72,9 @@ startContent.classList.add('hide');
 sortQuestions = questions.sort(() => questions.length);
 currentQuestionsIndex = 0;
 wrongAnswer = 0;
-contentElement.classList.remove('hide');
+score = 0;
 setNextQuestion();
+contentElement.classList.remove('hide');
 wonMessage.classList.add('hide');
 endGame.classList.add('hide');
 thirdlife.classList.remove('hide');
@@ -82,26 +86,28 @@ fatality.classList.remove('hide');
 function setNextQuestion(){
     init();
     displayQuestion(sortQuestions[currentQuestionsIndex])
+    
 }
 
 function displayQuestion(question){
 questionElement.innerText = question.question;
 question.answers.forEach((answer)=> {
     const button = document.createElement('button')
-    button.innerText =answer.text;
+    button.innerText = answer.text;
     button.classList.add('button');
     if (answer.correct){
         button.dataset.correct = answer.correct;   
         }
-        button.addEventListener('click', getWinner);
+        button.addEventListener('click', chooseAnswer);
         answersElement.appendChild(button);
     });
 }
 
-function getWinner(e){
+function chooseAnswer(e){
 const buttonChose = e.target;
 const correct = buttonChose.dataset.correct;
 if (correct) {
+    score++;
     // render sarcastic Riddler quote
     }   else {
         wrongAnswer++;
@@ -116,7 +122,9 @@ if (correct) {
         if(wrongAnswer != 3) nxtBtn.classList.remove('hide');
     } else {
         resetBtn.classList.remove('hide');
-        // add if statement to declare winner
+        if (score < 10){
+
+        }
     }
 }
 

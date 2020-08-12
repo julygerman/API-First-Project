@@ -88,16 +88,44 @@ p{
 .button:hover{
     border-color: chartreuse;
 }
-.lives{
-    position: absolute;
-    top: 50px;
-    left: 50px;
-    width: 500px;
-    display: block;
+.life{
+    position: relative;
+    top: -150px;
+    height: auto;
+    width: 100px;
+    display: flexbox;
+    flex-direction: column;
+    
 }
-.noLives{
-    padding: 100px;
-}
+
 .hide{
     display: none;
+}
+
+.content{
+    text-align: center;
+    align-items: center;
+    position: relative;
+    top: -500px;
+    color: greenyellow;
+    text-shadow: 2px 2px black;
+    text-emphasis: bold;
+    font-size: 20px;
+    
+}
+
+.button{
+    color: black;
+    border: greenyellow;
+    border-radius:  20px;
+    padding: 20px;
+    margin: 5px;
+    font-size: 18px;
+    
+
+}
+
+#questions{
+    width: 60%;
+    margin: 0 auto;
 }

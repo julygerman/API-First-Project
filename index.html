@@ -21,7 +21,7 @@
             <p>Are you ready to give up yet? Your puny mind is no match for my own."</p>
     </div>
             <div id="lives" class="pages">
-                <img id="noLives" class="life hide" src="/Pictures/no-questionMarks.png" alt="no lives left">
+                <img id="loser" class="life hide" src="/Pictures/no-questionMarks.png" alt="you lose">
                 <img id="oneLife" class="life hide" src="/Pictures/question marker.png" alt="one life remaining">
                 <img id="twoLives" class="life hide" src="/Pictures/2-QuestionMarks.png" alt="two lives remaining">
                 <img id="threeLives" class="life hide" src="/Pictures/3- QuestionMarks .png" alt="all lives remaining">
@@ -35,17 +35,18 @@
 </div>
         
     <div class="content">
-            <p1 id="startMessage">Press the Start Button</p1>
-            <div id="questionContent" class="hide">
-            <div id="questions">Question</div>
+            <p id="startMessage">Press the Start Button</p>
+            <div id="questionContent" class="hide"></div>
+            <div id="questions">Question
             <div id="answerButtons" class="btnConfig">
                 <button class="button">Answer 1</button>
                 <button class="button">Answer 2</button>
                 <button class="button">Answer 3</button>
                 <button class="button">Answer 4</button>
             </div>
-            </div>
+        </div>
     </div>
+    
     <div class="utility">
         <button id="startButton" type="button" class="btn btn-success">Start</button>
         <button id="resetButton" type="button" class="btn btn-danger btn-lg">Reset</button>
