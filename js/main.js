@@ -8,7 +8,7 @@
 // the reset button nets to initialize a game reset
 // the game needs to be able to 
 // I would like to randomize the board with new questions and categories but it seems to complicated becasue i would ahve to come up with all the multiple choice answers
-
+//f
 
 
 // Write Objectives
