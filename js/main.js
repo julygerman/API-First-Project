@@ -22,14 +22,14 @@
 /*------Variables (state)------*/
 let currentQuestionsIndex, sortQuestions;
 let wrongAnswer = 0; 
-score = 0;
+let score = 0;
 
 
 /*------Cached Element References------*/
 const contentElement = document.getElementById('questionContent')
 const questionElement = document.getElementById('questions')
 const gameStatus = document.getElementById('mainMessage')
-const score = document.getElementById('gameScore')
+const scoreEl = document.getElementById('gameScore')
 const answersElement = document.getElementById('answerButtons')
 const startContent = document.getElementById('startMessage')
 const startBtn = document.getElementById('startButton')
@@ -73,6 +73,7 @@ sortQuestions = questions.sort(() => questions.length);
 currentQuestionsIndex = 0;
 wrongAnswer = 0;
 score = 0;
+scoreEl.innerText = score;
 setNextQuestion();
 contentElement.classList.remove('hide');
 wonMessage.classList.add('hide');
@@ -122,14 +123,21 @@ if (correct) {
         if(wrongAnswer != 3) nxtBtn.classList.remove('hide');
     } else {
         resetBtn.classList.remove('hide');
-        if (score < 10){
-
+        if (score === 10){
+            winMessage.classList.remove('hide');
+            secondLife.classList.add('hide')
+            lastLife.classList.add('hide')
+            fatality.classList.add('hide')
+            //add win music and or effect
+        } else if (score > 10) {
+            init()
         }
     }
 }
 
 function setStatusClass(element, correct){
     resetStatus(element);
+    scoreEl.innerText = gamescore;
     if (correct){
         element.classList.add('correct');
     } else {
