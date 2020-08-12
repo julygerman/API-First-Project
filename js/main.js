@@ -1,7 +1,6 @@
 // I need to create a board layout 5 X 6
 // each money box needs to have an event clicker
 // the board needs to have category specific API jeopardy questions attached to each indiviual category and its cards
-// the game needs to be able to keep score
 // the game needs to generate multiple choice questions per card
 // the game needs to be able to subtract points from the player if theier answers are false
 // if the player wins or loses the board needs to stop being clickable
@@ -22,14 +21,13 @@
 /*------Variables (state)------*/
 let currentQuestionsIndex, sortQuestions;
 let wrongAnswer = 0; 
-let score = 0;
+
 
 
 /*------Cached Element References------*/
 const contentElement = document.getElementById('questionContent')
 const questionElement = document.getElementById('questions')
 const gameStatus = document.getElementById('mainMessage')
-const scoreEl = document.getElementById('gameScore')
 const answersElement = document.getElementById('answerButtons')
 const startContent = document.getElementById('startMessage')
 const startBtn = document.getElementById('startButton')
@@ -55,24 +53,24 @@ nxtBtn.addEventListener('click', ()=> {
     setNextQuestion();
 });
 /*------Functions------*/
+init();
 
 function init(){
 resetStatus(document.body);
-nxtBtn.classList.add('hide')
+nxtBtn.classList.remove('hide');
+wonMessage.classList.add('hide')
+endGame.classList.add('hide')
 
 while (answersElement.firstChild){
     answersElement.removeChild(answersElement.firstChild)
     }
 }
-
 function render(){
 startBtn.classList.add('hide');
 startContent.classList.add('hide');
 sortQuestions = questions.sort(() => questions.length);
 currentQuestionsIndex = 0;
 wrongAnswer = 0;
-score = 0;
-scoreEl.innerText = score;
 setNextQuestion();
 contentElement.classList.remove('hide');
 wonMessage.classList.add('hide');
@@ -92,7 +90,7 @@ function setNextQuestion(){
 function displayQuestion(question){
 questionElement.innerText = question.question;
 question.answers.forEach((answer)=> {
-    const button = document.createElement('button')
+    const button = document.createElement('button');
     button.innerText = answer.text;
     button.classList.add('button');
     if (answer.correct){
@@ -107,7 +105,6 @@ function chooseAnswer(e){
 const buttonChose = e.target;
 const correct = buttonChose.dataset.correct;
 if (correct) {
-    score++;
     // render sarcastic Riddler quote
     }   else {
         wrongAnswer++;
@@ -120,23 +117,12 @@ if (correct) {
     });
     if (sortQuestions.length > currentQuestionsIndex + 1){
         if(wrongAnswer != 3) nxtBtn.classList.remove('hide');
-    } else {
-        resetBtn.classList.remove('hide');
-        if (score === 10){
-            winMessage.classList.remove('hide');
-            secondLife.classList.add('hide')
-            lastLife.classList.add('hide')
-            fatality.classList.add('hide')
-            //add win music and or effect
-        } else if (score > 10) {
-            init()
-        }
-    }
+    } 
 }
+
 
 function setStatusClass(element, correct){
     resetStatus(element);
-    scoreEl.innerText = gamescore;
     if (correct){
         element.classList.add('correct');
     } else {
@@ -171,10 +157,10 @@ function displayLives(){
     if (wrongAnswer === 3) {
         nxtBtn.classList.add('hide');
         lastLife.classList.add('hide');
-        fatality.classList.remove('hide')
-        resetBtn.classList.remove('hide')
+        fatality.classList.remove('hide');
+        resetBtn.classList.remove('hide');
         // add music
-        fatality.classList.remove('hide')
+        fatality.classList.remove('hide');
         // add pause to music
     }
 }
