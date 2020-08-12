@@ -63,7 +63,6 @@ nxtBtn.classList.add('hide')
 while (answersElement.firstChild){
     answersElement.removeChild(answersElement.firstChild)
     }
-
 }
 
 function render(){
@@ -81,7 +80,7 @@ endGame.classList.add('hide');
 thirdlife.classList.remove('hide');
 secondLife.classList.add('hide');
 lastLife.classList.add('hide');
-fatality.classList.remove('hide');
+fatality.classList.add('hide');
 }
 
 function setNextQuestion(){

@@ -129,3 +129,11 @@ p{
     width: 60%;
     margin: 0 auto;
 }
+
+#startMessage{
+    text-align: center;
+    align-items: center;
+    position: relative;
+    top: 350px;
+    left: 0px;
+}
