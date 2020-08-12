@@ -10,12 +10,13 @@ My desire for creating this game stems from my love of the **DC Universe**(espec
 
 
 ## User Persona:
-
+Batman and the rest of the Jusice League have been captured by the Riddler and the Legion of Doom. In order to rescue the heroes the Riddler has chosen you to challenge his intellect. It's up to you to solve every question he throws at you. 
 
 
 ## User Experience:
+The player will have three chances to make it through all of the questions. If the player answers at least 7/10 questions correctly then the player will win the game if not then they lose. 
 
-
+The game contains trivia style questions about the DC Universe and their super heroes.
 
 
 ## Wireframes

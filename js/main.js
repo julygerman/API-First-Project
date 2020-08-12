@@ -1,20 +1,4 @@
-// I need to create a board layout 5 X 6
-// each money box needs to have an event clicker
-// the board needs to have category specific API jeopardy questions attached to each indiviual category and its cards
-// the game needs to generate multiple choice questions per card
-// the game needs to be able to subtract points from the player if theier answers are false
-// if the player wins or loses the board needs to stop being clickable
-// the reset button nets to initialize a game reset
-// the game needs to be able to 
-// I would like to randomize the board with new questions and categories but it seems to complicated becasue i would ahve to come up with all the multiple choice answers
-//f
 
-
-// Write Objectives
-// Write User Stories
-
-// Questions:
-// Who killed Martha and Thomas Wayne? T: Joe Chill F;
 
 /*------Constants------*/
 
@@ -76,6 +60,7 @@ endGame.classList.add('hide')
 // while (answersElement.firstChild){
 //     answersElement.removeChild(answersElement.firstChild)
 //     }
+   
 }
 
 function render(){
@@ -92,14 +77,11 @@ thirdlife.classList.remove('hide');
 secondLife.classList.add('hide');
 lastLife.classList.add('hide');
 fatality.classList.add('hide');
-answersElement.classList.remove('hide')
-
 }
 
 function setNextQuestion(){
     reset();
     displayQuestion(sortQuestions[currentQuestionsIndex])
-    
 }
 
 function displayQuestion(question){
@@ -114,7 +96,6 @@ question.answers.forEach((answer)=> {
     button.addEventListener('click', chooseAnswer);
     answersElement.appendChild(button);
     });
-    console.log(chooseAnswer)
 }
 
 function chooseAnswer(e){
@@ -132,8 +113,11 @@ if (correct) {
         setStatusClass(button, button.dataset.correct);
     });
     if (sortQuestions.length > currentQuestionsIndex + 1){
-        if(wrongAnswer != 3 || sortQuestions === questions.length) nxtBtn.classList.add('hide');
-    } 
+        if(wrongAnswer != 3) nxtBtn.classList.add('hide');
+     } 
+    //if (currentQuestionsIndex <= sortQuestions){
+    //        nxtBtn.classList.add('hide')
+    // }
 }
 
 
