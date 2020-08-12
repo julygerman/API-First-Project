@@ -47,7 +47,7 @@ const wonMessage = document.getElementById('winningMessage')
 
 // document.querySelector('section.div').addEventListener('click', onClick);
 startBtn.addEventListener('click', render)
-resetBtn.addEventListener('click', render)
+resetBtn.addEventListener('click', init)
 nxtBtn.addEventListener('click', ()=> {
     currentQuestionsIndex++;
     setNextQuestion();
@@ -56,15 +56,18 @@ nxtBtn.addEventListener('click', ()=> {
 init();
 
 function init(){
-resetStatus(document.body);
-nxtBtn.classList.remove('hide');
+startBtn.classList.remove('hide')
+startContent.classList.remove('hide')
 wonMessage.classList.add('hide')
 endGame.classList.add('hide')
-
-while (answersElement.firstChild){
-    answersElement.removeChild(answersElement.firstChild)
-    }
+thirdlife.classList.add('hide');
+secondLife.classList.add('hide');
+lastLife.classList.add('hide');
+fatality.classList.add('hide');
+nxtBtn.classList.add('hide')
+resetStatus()
 }
+
 function render(){
 startBtn.classList.add('hide');
 startContent.classList.add('hide');
@@ -79,10 +82,12 @@ thirdlife.classList.remove('hide');
 secondLife.classList.add('hide');
 lastLife.classList.add('hide');
 fatality.classList.add('hide');
+// answersElement.classList.remove('hide')
+console.log(answersElement)
 }
 
 function setNextQuestion(){
-    init();
+    reset();
     displayQuestion(sortQuestions[currentQuestionsIndex])
     
 }
@@ -94,11 +99,12 @@ question.answers.forEach((answer)=> {
     button.innerText = answer.text;
     button.classList.add('button');
     if (answer.correct){
-        button.dataset.correct = answer.correct;   
-        }
-        button.addEventListener('click', chooseAnswer);
-        answersElement.appendChild(button);
+        button.correct = answer.correct;   
+    }
+    button.addEventListener('click', chooseAnswer);
+    answersElement.appendChild(button);
     });
+    console.log(displayQuestion)
 }
 
 function chooseAnswer(e){
@@ -132,7 +138,7 @@ function setStatusClass(element, correct){
 }
 
 function resetStatus(element){
-element.classList.remove('corect');
+element.classList.remove('correct');
 element.classList.remove('wrong');
 //element.classList.remove('effect')
 }
