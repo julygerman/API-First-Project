@@ -20,12 +20,12 @@ The game contains trivia style questions about the DC Universe and their super h
 
 
 ## Wireframes
+![Wireframe](Pictures/Wireframe.png)
 
 
 
 
 ## Psuedo Code
-
 
 
 
