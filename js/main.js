@@ -65,7 +65,17 @@ secondLife.classList.add('hide');
 lastLife.classList.add('hide');
 fatality.classList.add('hide');
 nxtBtn.classList.add('hide')
-resetStatus()
+contentElement.classList.add('hide')
+}
+
+function reset(){
+resetStatus(document.body);
+nxtBtn.classList.remove('hide');
+wonMessage.classList.add('hide')
+endGame.classList.add('hide')
+// while (answersElement.firstChild){
+//     answersElement.removeChild(answersElement.firstChild)
+//     }
 }
 
 function render(){
@@ -82,8 +92,8 @@ thirdlife.classList.remove('hide');
 secondLife.classList.add('hide');
 lastLife.classList.add('hide');
 fatality.classList.add('hide');
-// answersElement.classList.remove('hide')
-console.log(answersElement)
+answersElement.classList.remove('hide')
+
 }
 
 function setNextQuestion(){
@@ -104,7 +114,7 @@ question.answers.forEach((answer)=> {
     button.addEventListener('click', chooseAnswer);
     answersElement.appendChild(button);
     });
-    console.log(displayQuestion)
+    console.log(chooseAnswer)
 }
 
 function chooseAnswer(e){
@@ -122,7 +132,7 @@ if (correct) {
         setStatusClass(button, button.dataset.correct);
     });
     if (sortQuestions.length > currentQuestionsIndex + 1){
-        if(wrongAnswer != 3) nxtBtn.classList.remove('hide');
+        if(wrongAnswer != 3 || sortQuestions === questions.length) nxtBtn.classList.add('hide');
     } 
 }
 
@@ -168,7 +178,7 @@ function displayLives(){
         // add music
         fatality.classList.remove('hide');
         // add pause to music
-    }
+    } 
 }
 
  const questions = [
