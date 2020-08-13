@@ -26,7 +26,8 @@ const endGame = document.getElementById('loser')
 const wonMessage = document.getElementById('winningMessage')
 const scoreEl = document.getElementById('score')
 const endGameAudio = new Audio('Audio/explosion.wav')
-const gameAudio = new Audio('Audio/game-track.wav')
+const gameAudio = new Audio('Audio/gameTrack.wav')
+const winningAudio = new Audio('Audio/cheer.wav')
 
 
 
@@ -55,22 +56,26 @@ fatality.classList.add('hide');
 nxtBtn.classList.add('hide')
 contentElement.classList.add('hide')
 questionElement.classList.remove('hide')
-answersElement.classList.remove('hide')
+if (scoreEl.firstChild){
+    scoreEl.removeChild(scoreEl.firstChild)
+}
+
 
 }
 
 function reset(){
-resetStatus(document.body);
-nxtBtn.classList.add('hide');
-wonMessage.classList.add('hide')
-endGame.classList.add('hide')
-while (answersElement.firstChild){
-    answersElement.removeChild(answersElement.firstChild)
+    resetStatus(document.body);
+    nxtBtn.classList.add('hide');
+    wonMessage.classList.add('hide')
+    endGame.classList.add('hide')
+    while (answersElement.firstChild){
+        answersElement.removeChild(answersElement.firstChild)
     }
-   
+    
 }
 
 function render(){
+gameAudio.play()
 startBtn.classList.add('hide');
 startContent.classList.add('hide');
 sortQuestions = questions.sort(() => questions.length);
@@ -86,9 +91,6 @@ thirdlife.classList.remove('hide');
 secondLife.classList.add('hide');
 lastLife.classList.add('hide');
 fatality.classList.add('hide');
-// gameAudio.play();
-// gameAudio.volume = 0.009;
-// gameAudio.loop;
 }
 
 function setNextQuestion(){
@@ -143,6 +145,7 @@ if (correct) {
          answersElement.classList.add('hide')
          scoreEl.classList.add('hide')
          nxtBtn.classList.add('hide')
+         winningAudio.play()
      } if (wrongAnswer === 2 && score >=8){
         wonMessage.classList.remove('hide')
         thirdlife.classList.add('hide')
@@ -153,6 +156,7 @@ if (correct) {
         answersElement.classList.add('hide')
         scoreEl.classList.add('hide')
         nxtBtn.classList.add('hide')
+        winningAudio.play()
      }
 }
 
