@@ -52,6 +52,8 @@ lastLife.classList.add('hide');
 fatality.classList.add('hide');
 nxtBtn.classList.add('hide')
 contentElement.classList.add('hide')
+questionElement.classList.remove('hide')
+answersElement.classList.remove('hide')
 
 }
 
@@ -133,9 +135,10 @@ if (correct) {
          lastLife.classList.add('hide')
          fatality.classList.add('hide')
          questionElement.classList.add('hide')
+         answersElement.classList.add('hide')
      }
-     
 }
+
 function setStatusClass(element, correct){
     resetStatus(element);
     scoreEl.innerText = score;

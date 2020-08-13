@@ -140,7 +140,7 @@ p{
 #score{
     text-align: center;
     align-items: center;
-    position: relative;
-    top: -150px;
-    left: 0px;
+    position: fixed;
+    top: 700px;
+    left: 920px;
 }
