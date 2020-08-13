@@ -56,10 +56,7 @@ fatality.classList.add('hide');
 nxtBtn.classList.add('hide')
 contentElement.classList.add('hide')
 questionElement.classList.remove('hide')
-if (scoreEl.firstChild){
-    scoreEl.removeChild(scoreEl.firstChild)
-}
-
+answersElement.classList.remove('hide')
 
 }
 
