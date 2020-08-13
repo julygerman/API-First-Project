@@ -26,13 +26,11 @@ const wonMessage = document.getElementById('winningMessage')
 const scoreEl = document.getElementById('score')
 const endGameAudio = new Audio('Audio/explosion.wav')
 const gameAudio = new Audio('Audio/gameTrack.wav')
-const winningAudio = new Audio('Audio/cheer.wav')
-const buzzerAudio = new Audio('Audio/buzzer.wav')
-const youLoseAudio = new Audio('Audio/youLose.mp3')
+const winningAudio = new Audio('Audio/cubanpete.wav')
+const buzzerAudio = new Audio('Audio/overTheTop.wav')
+const youLoseAudio = new Audio('Audio/riddlerLaugh.wav')
+const correctAudio = new Audio('Audio/angryRiddler.wav')
 const gameStatus = document.getElementById('H3')
-
-
-
 /*------Event Listeners------*/
 
 // document.querySelector('section.div').addEventListener('click', onClick);
@@ -118,13 +116,13 @@ question.answers.forEach((answer)=> {
     answersElement.appendChild(button);
     });
 }
-
 function chooseAnswer(e){
 const buttonChose = e.target
 const correct = buttonChose.correct
 if (correct) {
     score++
     gameStatus.innerText = "Easy! Isn't it? Well, we'll see. We'll see."
+    correctAudio.play()
     } else {
     wrongAnswer++
     gameStatus.innerText = "Seriously, this was the easy one. How are you going to save them if you can't even figure out the most trivial of conundrums?"
@@ -222,6 +220,7 @@ function displayLives(){
         buzzerAudio.pause()
         buzzerAudio.currentTime = 0
         youLoseAudio.play()
+        youLoseAudio.volume = 0.09
     } 
 }
 
