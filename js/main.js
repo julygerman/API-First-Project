@@ -64,6 +64,7 @@ answersElement.classList.remove('hide')
 gameStatus.classList.remove('hide')
 //gameStatus.innerText = "I, Edward Nigma, have placed a dazzling selection of questions. an you solve them all? Will you solve all my riddles will you save these pathetic heroes?"
 scoreEl.classList.add('hide')
+score = 0
 }
 
 function reset(){
@@ -84,7 +85,7 @@ startBtn.classList.add('hide')
 startContent.classList.add('hide')
 sortQuestions = questions.sort(() => questions.length)
 currentQuestionsIndex = 0
-wrongAnswer = 0;
+wrongAnswer = 0
 score = score
 scoreEl.innerText = score
 scoreEl.classList.add('hide')
