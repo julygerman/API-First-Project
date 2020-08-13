@@ -57,9 +57,9 @@ resetStatus(document.body);
 nxtBtn.classList.remove('hide');
 wonMessage.classList.add('hide')
 endGame.classList.add('hide')
-// while (answersElement.firstChild){
-//     answersElement.removeChild(answersElement.firstChild)
-//     }
+while (answersElement.firstChild){
+    answersElement.removeChild(answersElement.firstChild)
+    }
    
 }
 
@@ -85,16 +85,21 @@ function setNextQuestion(){
 }
 
 function displayQuestion(question){
+    console.log(question)
 questionElement.innerText = question.question;
 question.answers.forEach((answer)=> {
+    console.log(answer)
     const button = document.createElement('button');
     button.innerText = answer.text;
     button.classList.add('button');
     if (answer.correct){
+        console.log(answer)
         button.correct = answer.correct;   
     }
     button.addEventListener('click', chooseAnswer);
+    console.log(answersElement)
     answersElement.appendChild(button);
+    console.log(answersElement)
     });
 }
 
