@@ -54,7 +54,7 @@ contentElement.classList.add('hide')
 
 function reset(){
 resetStatus(document.body);
-nxtBtn.classList.remove('hide');
+nxtBtn.classList.add('hide');
 wonMessage.classList.add('hide')
 endGame.classList.add('hide')
 while (answersElement.firstChild){
@@ -105,7 +105,7 @@ question.answers.forEach((answer)=> {
 
 function chooseAnswer(e){
 const buttonChose = e.target;
-const correct = buttonChose.dataset.correct;
+const correct = buttonChose.correct;
 if (correct) {
     // render sarcastic Riddler quote
     }   else {
@@ -115,10 +115,10 @@ if (correct) {
     }
     setStatusClass(document.body, correct);
     Array.from(answersElement.children).forEach((button)=> {
-        setStatusClass(button, button.dataset.correct);
+        setStatusClass(button, button.correct);
     });
     if (sortQuestions.length > currentQuestionsIndex + 1){
-        if(wrongAnswer != 3) nxtBtn.classList.add('hide');
+        if(wrongAnswer != 3) nxtBtn.classList.remove('hide');
      } 
     //if (currentQuestionsIndex <= sortQuestions){
     //        nxtBtn.classList.add('hide')
