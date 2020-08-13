@@ -136,6 +136,14 @@ if (correct) {
          fatality.classList.add('hide')
          questionElement.classList.add('hide')
          answersElement.classList.add('hide')
+     } if (wrongAnswer === 2 && score >=8){
+        wonMessage.classList.remove('hide')
+        thirdlife.classList.add('hide')
+        secondLife.classList.add('hide')
+        lastLife.classList.add('hide')
+        fatality.classList.add('hide')
+        questionElement.classList.add('hide')
+        answersElement.classList.add('hide')
      }
 }
 
@@ -178,8 +186,10 @@ function displayLives(){
         lastLife.classList.add('hide');
         fatality.classList.remove('hide');
         resetBtn.classList.remove('hide');
+        questionElement.classList.add('hide')
+        answersElement.classList.add('hide')
+        endGame.classList.remove('hide')
         // add music
-        fatality.classList.remove('hide');
         // add pause to music
     } 
 }

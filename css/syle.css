@@ -225,33 +225,45 @@ p{
     #resetButton{
         position: absolute;
         top: 75%;
-        left: 50%;
+        left:46%;
         margin-top: 40px;
+        text-align: center;
     }
     
     #nextButton{
         position: absolute;
-        top: 75%;
-        left: 52.5%;
+        top: 75.7%;
+        left: 57%;
         margin-top: 40px;
+        text-align: center;
+    }
     }
     #startButton{
         position: absolute;
-        top: 75%;
-        left: 42%;
+        top: 75.7%;
+        left:38%;
         margin-top: 40px;
+        text-align: center;
     }
     .button:hover{
         border-color: chartreuse;
     }
     .life{
-        position: relative;
-        top: -150px;
+        display: flex;
+        flex-direction: row;
+        background-color: rgba(0,0,0,0.4);
+        position: absolute;
+        top: 200px;
+        left: 340px;
+        border-radius: 25%;
+        align-items: center;
         height: auto;
         width: 100px;
-        display: flexbox;
-        flex-direction: column;
         
+    }
+
+    #loser{
+        display: flex;
     }
     
     .hide{
@@ -261,8 +273,8 @@ p{
     .content{
         text-align: center;
         align-items: center;
-        position: relative;
-        top: -500px;
+        position: absolute;
+        top: 300px;
         color: greenyellow;
         text-shadow: 2px 2px black;
         text-emphasis: bold;
