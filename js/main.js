@@ -29,7 +29,7 @@ const endGameAudio = new Audio('Audio/explosion.wav')
 const gameAudio = new Audio('Audio/gameTrack.wav')
 const winningAudio = new Audio('Audio/cheer.wav')
 const buzzerAudio = new Audio('Audio/buzzer.wav')
-
+const youLoseAudio = new Audio('Audio/youLose.mp3')
 
 
 /*------Event Listeners------*/
@@ -38,6 +38,8 @@ const buzzerAudio = new Audio('Audio/buzzer.wav')
 startBtn.addEventListener('click', render)
 resetBtn.addEventListener('click', init)
 nxtBtn.addEventListener('click', ()=> {
+    buzzerAudio.pause()
+    buzzerAudio.currentTime = 0
     currentQuestionsIndex++
     setNextQuestion()
 });
@@ -120,9 +122,8 @@ if (correct) {
     wrongAnswer++
     // render arrogant Riddler quote
     buzzerAudio.play()
+    buzzerAudio.volume = 0.09
     displayLives()
-    buzzerAudio.pause()
-    buzzerAudio.currentTime = 0
     }
     setStatusClass(document.body, correct)
     Array.from(answersElement.children).forEach((button)=> {
@@ -207,6 +208,9 @@ function displayLives(){
         endGameAudio.volume = 0.009
         gameAudio.pause()
         gameAudio.currentTime = 0
+        buzzerAudio.pause()
+        buzzerAudio.currentTime = 0
+        youLoseAudio.play()
     } 
 }
 
