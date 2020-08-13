@@ -200,6 +200,7 @@ function displayLives(){
         answersElement.classList.add('hide')
         scoreEl.classList.add('hide')
         endGameAudio.play()
+        endGameAudio.volume = 0.009
         // add pause to music
     } 
 }
