@@ -12,7 +12,6 @@ let score = 0
 /*------Cached Element References------*/
 const contentElement = document.getElementById('questionContent')
 const questionElement = document.getElementById('questions')
-const gameStatus = document.getElementById('mainMessage')
 const answersElement = document.getElementById('answerButtons')
 const startContent = document.getElementById('startMessage')
 const startBtn = document.getElementById('startButton')
@@ -30,6 +29,8 @@ const gameAudio = new Audio('Audio/gameTrack.wav')
 const winningAudio = new Audio('Audio/cheer.wav')
 const buzzerAudio = new Audio('Audio/buzzer.wav')
 const youLoseAudio = new Audio('Audio/youLose.mp3')
+const gameStatus = document.getElementById('H3')
+
 
 
 /*------Event Listeners------*/
@@ -41,10 +42,11 @@ nxtBtn.addEventListener('click', ()=> {
     buzzerAudio.pause()
     buzzerAudio.currentTime = 0
     currentQuestionsIndex++
+    gameStatus.innerText = ''
     setNextQuestion()
 });
 /*------Functions------*/
-init();
+init()
 
 function init(){
 startBtn.classList.remove('hide')
@@ -59,7 +61,9 @@ nxtBtn.classList.add('hide')
 contentElement.classList.add('hide')
 questionElement.classList.remove('hide')
 answersElement.classList.remove('hide')
-
+gameStatus.classList.remove('hide')
+//gameStatus.innerText = "I, Edward Nigma, have placed a dazzling selection of questions. an you solve them all? Will you solve all my riddles will you save these pathetic heroes?"
+scoreEl.classList.add('hide')
 }
 
 function reset(){
@@ -76,25 +80,27 @@ function reset(){
 function render(){
 gameAudio.play()
 gameAudio.volume = 0.4
-startBtn.classList.add('hide');
-startContent.classList.add('hide');
-sortQuestions = questions.sort(() => questions.length);
-currentQuestionsIndex = 0;
+startBtn.classList.add('hide')
+startContent.classList.add('hide')
+sortQuestions = questions.sort(() => questions.length)
+currentQuestionsIndex = 0
 wrongAnswer = 0;
-score = 0;
-scoreEl.innerText = score;
-setNextQuestion();
-contentElement.classList.remove('hide');
-wonMessage.classList.add('hide');
-endGame.classList.add('hide');
-thirdlife.classList.remove('hide');
-secondLife.classList.add('hide');
-lastLife.classList.add('hide');
-fatality.classList.add('hide');
+score = score
+scoreEl.innerText = score
+scoreEl.classList.add('hide')
+setNextQuestion()
+contentElement.classList.remove('hide')
+wonMessage.classList.add('hide')
+endGame.classList.add('hide')
+thirdlife.classList.remove('hide')
+secondLife.classList.add('hide')
+lastLife.classList.add('hide')
+fatality.classList.add('hide')
+gameStatus.innerText = "I, Edward Nigma, have placed a dazzling selection of questions. an you solve them all? Will you solve all my riddles will you save these pathetic heroes?"
 }
 
 function setNextQuestion(){
-    reset();
+    reset()
     displayQuestion(sortQuestions[currentQuestionsIndex])
 }
 
@@ -117,10 +123,10 @@ const buttonChose = e.target
 const correct = buttonChose.correct
 if (correct) {
     score++
-    // render sarcastic Riddler quote
+    gameStatus.innerText = "Easy! Isn't it? Well, we'll see. We'll see."
     } else {
     wrongAnswer++
-    // render arrogant Riddler quote
+    gameStatus.innerText = "Seriously, this was the easy one. How are you going to save them if you can't even figure out the most trivial of conundrums?"
     buzzerAudio.play()
     buzzerAudio.volume = 0.09
     displayLives()
@@ -142,9 +148,10 @@ if (correct) {
          answersElement.classList.add('hide')
          scoreEl.classList.add('hide')
          nxtBtn.classList.add('hide')
+         gameStatus.classList.add('hide')
          winningAudio.play()
          gameAudio.pause()
-        gameAudio.currentTime = 0
+         gameAudio.currentTime = 0
      } 
      if (wrongAnswer === 2 && score >=8){
         wonMessage.classList.remove('hide')
@@ -156,6 +163,7 @@ if (correct) {
         answersElement.classList.add('hide')
         scoreEl.classList.add('hide')
         nxtBtn.classList.add('hide')
+        gameStatus.classList.add('hide')
         winningAudio.play()
         gameAudio.pause()
         gameAudio.currentTime = 0
@@ -204,6 +212,7 @@ function displayLives(){
         questionElement.classList.add('hide')
         answersElement.classList.add('hide')
         scoreEl.classList.add('hide')
+        gameStatus.classList.add('hide')
         endGameAudio.play()
         endGameAudio.volume = 0.009
         gameAudio.pause()
