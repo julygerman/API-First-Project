@@ -4,8 +4,8 @@
 
 /*------Variables (state)------*/
 let currentQuestionsIndex, sortQuestions;
-let wrongAnswer = 0; 
-let score = 0;
+let wrongAnswer = 0 
+let score = 0
 
 
 
@@ -28,7 +28,7 @@ const scoreEl = document.getElementById('score')
 const endGameAudio = new Audio('Audio/explosion.wav')
 const gameAudio = new Audio('Audio/gameTrack.wav')
 const winningAudio = new Audio('Audio/cheer.wav')
-
+const buzzerAudio = new Audio('Audio/buzzer.wav')
 
 
 
@@ -38,8 +38,8 @@ const winningAudio = new Audio('Audio/cheer.wav')
 startBtn.addEventListener('click', render)
 resetBtn.addEventListener('click', init)
 nxtBtn.addEventListener('click', ()=> {
-    currentQuestionsIndex++;
-    setNextQuestion();
+    currentQuestionsIndex++
+    setNextQuestion()
 });
 /*------Functions------*/
 init();
@@ -49,10 +49,10 @@ startBtn.classList.remove('hide')
 startContent.classList.remove('hide')
 wonMessage.classList.add('hide')
 endGame.classList.add('hide')
-thirdlife.classList.add('hide');
-secondLife.classList.add('hide');
-lastLife.classList.add('hide');
-fatality.classList.add('hide');
+thirdlife.classList.add('hide')
+secondLife.classList.add('hide')
+lastLife.classList.add('hide')
+fatality.classList.add('hide')
 nxtBtn.classList.add('hide')
 contentElement.classList.add('hide')
 questionElement.classList.remove('hide')
@@ -61,8 +61,8 @@ answersElement.classList.remove('hide')
 }
 
 function reset(){
-    resetStatus(document.body);
-    nxtBtn.classList.add('hide');
+    resetStatus(document.body)
+    nxtBtn.classList.add('hide')
     wonMessage.classList.add('hide')
     endGame.classList.add('hide')
     while (answersElement.firstChild){
@@ -97,42 +97,40 @@ function setNextQuestion(){
 }
 
 function displayQuestion(question){
-    console.log(question)
 questionElement.innerText = question.question;
 question.answers.forEach((answer)=> {
-    console.log(answer)
     const button = document.createElement('button');
     button.innerText = answer.text;
     button.classList.add('button');
     if (answer.correct){
-        console.log(answer)
         button.correct = answer.correct;   
     }
     button.addEventListener('click', chooseAnswer);
-    console.log(answersElement)
     answersElement.appendChild(button);
-    console.log(answersElement)
     });
 }
 
 function chooseAnswer(e){
-const buttonChose = e.target;
-const correct = buttonChose.correct;
+const buttonChose = e.target
+const correct = buttonChose.correct
 if (correct) {
-    score++;
+    score++
     // render sarcastic Riddler quote
-    }   else {
-        wrongAnswer++;
-        // render arrogant Riddler quote
-        displayLives();
+    } else {
+    wrongAnswer++
+    // render arrogant Riddler quote
+    buzzerAudio.play()
+    displayLives()
+    buzzerAudio.pause()
+    buzzerAudio.currentTime = 0
     }
-    setStatusClass(document.body, correct);
+    setStatusClass(document.body, correct)
     Array.from(answersElement.children).forEach((button)=> {
-        setStatusClass(button, button.correct);
-    });
+        setStatusClass(button, button.correct)
+    })
     if (sortQuestions.length > currentQuestionsIndex + 1){
-        if(wrongAnswer != 3) nxtBtn.classList.remove('hide');
-     } else resetBtn.classList.remove('hide');
+        if(wrongAnswer != 3) nxtBtn.classList.remove('hide')
+     } else resetBtn.classList.remove('hide')
      if (score === 10){
          wonMessage.classList.remove('hide')
          thirdlife.classList.add('hide')
@@ -144,7 +142,10 @@ if (correct) {
          scoreEl.classList.add('hide')
          nxtBtn.classList.add('hide')
          winningAudio.play()
-     } if (wrongAnswer === 2 && score >=8){
+         gameAudio.pause()
+        gameAudio.currentTime = 0
+     } 
+     if (wrongAnswer === 2 && score >=8){
         wonMessage.classList.remove('hide')
         thirdlife.classList.add('hide')
         secondLife.classList.add('hide')
@@ -155,54 +156,57 @@ if (correct) {
         scoreEl.classList.add('hide')
         nxtBtn.classList.add('hide')
         winningAudio.play()
+        gameAudio.pause()
+        gameAudio.currentTime = 0
      }
 }
 
 function setStatusClass(element, correct){
-    resetStatus(element);
-    scoreEl.innerText = score;
+    resetStatus(element)
+    scoreEl.innerText = score
     if (correct){
-        element.classList.add('correct');
+        element.classList.add('correct')
     } else {
-        element.classList.add('wrong');
+        element.classList.add('wrong')
         // i can add an effect
     }
 }
 
 function resetStatus(element){
-element.classList.remove('correct');
-element.classList.remove('wrong');
+element.classList.remove('correct')
+element.classList.remove('wrong')
 //element.classList.remove('effect')
 }
 
 function displayLives(){
     if (wrongAnswer === 0) {
-        lastLife.classList.add('hide');
-        secondLife.classList.add('hide');
+        lastLife.classList.add('hide')
+        secondLife.classList.add('hide')
     }
     if (wrongAnswer === 1) {
-        lastLife.classList.add('hide');
-        secondLife.classList.remove('hide');
-        thirdlife.classList.add('hide');
+        lastLife.classList.add('hide')
+        secondLife.classList.remove('hide')
+        thirdlife.classList.add('hide')
         // add set timeout
     }
     if (wrongAnswer === 2) {
-        lastLife.classList.remove('hide');
-        secondLife.classList.add('hide');
-        thirdlife.classList.add('hide');
+        lastLife.classList.remove('hide')
+        secondLife.classList.add('hide')
+        thirdlife.classList.add('hide')
         // add set timerout
     }
     if (wrongAnswer === 3) {
-        nxtBtn.classList.add('hide');
-        lastLife.classList.add('hide');
-        fatality.classList.remove('hide');
-        resetBtn.classList.remove('hide');
+        nxtBtn.classList.add('hide')
+        lastLife.classList.add('hide')
+        fatality.classList.remove('hide')
+        resetBtn.classList.remove('hide')
         questionElement.classList.add('hide')
         answersElement.classList.add('hide')
         scoreEl.classList.add('hide')
         endGameAudio.play()
         endGameAudio.volume = 0.009
-        // add pause to music
+        gameAudio.pause()
+        gameAudio.currentTime = 0
     } 
 }
 
@@ -233,7 +237,7 @@ function displayLives(){
      {
          question: `What did Superman use to open the door of his "Fortress of Solitude"?`,
          // add quip,
-        answers: [
+         answers: [
             {
                 text: `His super whistle`,
                 correct: false,
