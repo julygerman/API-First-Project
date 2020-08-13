@@ -73,6 +73,7 @@ function reset(){
 
 function render(){
 gameAudio.play()
+gameAudio.volume = 0.4
 startBtn.classList.add('hide');
 startContent.classList.add('hide');
 sortQuestions = questions.sort(() => questions.length);
