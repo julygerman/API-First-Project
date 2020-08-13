@@ -153,6 +153,7 @@ if (correct) {
          winningAudio.play()
          gameAudio.pause()
          gameAudio.currentTime = 0
+         gameStatus.innerText = "What? You did it? You've must have cheated. There is no way you could beat me!"
      } 
      if (wrongAnswer === 2 && score >=8){
         wonMessage.classList.remove('hide')
@@ -164,10 +165,10 @@ if (correct) {
         answersElement.classList.add('hide')
         scoreEl.classList.add('hide')
         nxtBtn.classList.add('hide')
-        gameStatus.classList.add('hide')
         winningAudio.play()
         gameAudio.pause()
         gameAudio.currentTime = 0
+        gameStatus.innerText = "What? You did it? You've must have cheated. There is no way you could beat me!"
      }
 }
 
@@ -213,7 +214,7 @@ function displayLives(){
         questionElement.classList.add('hide')
         answersElement.classList.add('hide')
         scoreEl.classList.add('hide')
-        gameStatus.classList.add('hide')
+        gameStatus.innerText = "What's wrong? Has your primitive brain given up and accepted that I, the Riddler, am better than you?"
         endGameAudio.play()
         endGameAudio.volume = 0.009
         gameAudio.pause()
