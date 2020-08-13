@@ -5,6 +5,7 @@
 /*------Variables (state)------*/
 let currentQuestionsIndex, sortQuestions;
 let wrongAnswer = 0; 
+let score = 0;
 
 
 
@@ -23,6 +24,7 @@ const lastLife = document.getElementById('oneLife')
 const fatality = document.getElementById('noLives')
 const endGame = document.getElementById('loser')
 const wonMessage = document.getElementById('winningMessage')
+const scoreEl = document.getElementById('score')
 
 
 
@@ -50,6 +52,7 @@ lastLife.classList.add('hide');
 fatality.classList.add('hide');
 nxtBtn.classList.add('hide')
 contentElement.classList.add('hide')
+
 }
 
 function reset(){
@@ -69,6 +72,8 @@ startContent.classList.add('hide');
 sortQuestions = questions.sort(() => questions.length);
 currentQuestionsIndex = 0;
 wrongAnswer = 0;
+score = 0;
+scoreEl.innerText = score;
 setNextQuestion();
 contentElement.classList.remove('hide');
 wonMessage.classList.add('hide');
@@ -107,6 +112,7 @@ function chooseAnswer(e){
 const buttonChose = e.target;
 const correct = buttonChose.correct;
 if (correct) {
+    score++;
     // render sarcastic Riddler quote
     }   else {
         wrongAnswer++;
@@ -119,15 +125,20 @@ if (correct) {
     });
     if (sortQuestions.length > currentQuestionsIndex + 1){
         if(wrongAnswer != 3) nxtBtn.classList.remove('hide');
-     } 
-    //if (currentQuestionsIndex <= sortQuestions){
-    //        nxtBtn.classList.add('hide')
-    // }
+     } else resetBtn.classList.remove('hide');
+     if (score === 10){
+         wonMessage.classList.remove('hide')
+         thirdlife.classList.add('hide')
+         secondLife.classList.add('hide')
+         lastLife.classList.add('hide')
+         fatality.classList.add('hide')
+         questionElement.classList.add('hide')
+     }
+     
 }
-
-
 function setStatusClass(element, correct){
     resetStatus(element);
+    scoreEl.innerText = score;
     if (correct){
         element.classList.add('correct');
     } else {
