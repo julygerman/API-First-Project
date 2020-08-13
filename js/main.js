@@ -29,7 +29,7 @@ const gameAudio = new Audio('Audio/gameTrack.wav')
 const winningAudio = new Audio('Audio/cubanpete.wav')
 const buzzerAudio = new Audio('Audio/overTheTop.wav')
 const youLoseAudio = new Audio('Audio/riddlerLaugh.wav')
-const correctAudio = new Audio('Audio/angryRiddler.wav')
+const correctAudio = new Audio('Audio/battleship.wav')
 const gameStatus = document.getElementById('H3')
 /*------Event Listeners------*/
 
@@ -123,6 +123,7 @@ if (correct) {
     score++
     gameStatus.innerText = "Easy! Isn't it? Well, we'll see. We'll see."
     correctAudio.play()
+    correctAudio.volume = 0.09
     } else {
     wrongAnswer++
     gameStatus.innerText = "Seriously, this was the easy one. How are you going to save them if you can't even figure out the most trivial of conundrums?"
