@@ -136,6 +136,7 @@ if (correct) {
          fatality.classList.add('hide')
          questionElement.classList.add('hide')
          answersElement.classList.add('hide')
+         scoreEl.classList.add('hide')
      } if (wrongAnswer === 2 && score >=8){
         wonMessage.classList.remove('hide')
         thirdlife.classList.add('hide')
@@ -144,6 +145,7 @@ if (correct) {
         fatality.classList.add('hide')
         questionElement.classList.add('hide')
         answersElement.classList.add('hide')
+        scoreEl.classList.add('hide')
      }
 }
 
@@ -188,7 +190,7 @@ function displayLives(){
         resetBtn.classList.remove('hide');
         questionElement.classList.add('hide')
         answersElement.classList.add('hide')
-        endGame.classList.remove('hide')
+        scoreEl.classList.add('hide')
         // add music
         // add pause to music
     } 
