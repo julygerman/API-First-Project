@@ -25,6 +25,8 @@ const fatality = document.getElementById('noLives')
 const endGame = document.getElementById('loser')
 const wonMessage = document.getElementById('winningMessage')
 const scoreEl = document.getElementById('score')
+const endGameAudio = new Audio('Audio/explosion.wav')
+const gameAudio = new Audio('Audio/game-track.wav')
 
 
 
@@ -84,6 +86,9 @@ thirdlife.classList.remove('hide');
 secondLife.classList.add('hide');
 lastLife.classList.add('hide');
 fatality.classList.add('hide');
+// gameAudio.play();
+// gameAudio.volume = 0.009;
+// gameAudio.loop;
 }
 
 function setNextQuestion(){
@@ -137,6 +142,7 @@ if (correct) {
          questionElement.classList.add('hide')
          answersElement.classList.add('hide')
          scoreEl.classList.add('hide')
+         nxtBtn.classList.add('hide')
      } if (wrongAnswer === 2 && score >=8){
         wonMessage.classList.remove('hide')
         thirdlife.classList.add('hide')
@@ -146,6 +152,7 @@ if (correct) {
         questionElement.classList.add('hide')
         answersElement.classList.add('hide')
         scoreEl.classList.add('hide')
+        nxtBtn.classList.add('hide')
      }
 }
 
@@ -191,7 +198,7 @@ function displayLives(){
         questionElement.classList.add('hide')
         answersElement.classList.add('hide')
         scoreEl.classList.add('hide')
-        // add music
+        endGameAudio.play()
         // add pause to music
     } 
 }
