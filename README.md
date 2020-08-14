@@ -19,7 +19,7 @@ The player will have three chances to make it through all of the questions. If t
 The game contains trivia style questions about the DC Universe and their super friends.
 
 ## Website Link: 
-supeeerrr-trivia.surge.sh
+https://supeeerrr-trivia.surge.sh
 ## Wireframes
 ![Wireframe](Pictures/Wireframe.png)
 ## Screenshots:
