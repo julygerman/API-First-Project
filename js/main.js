@@ -33,7 +33,6 @@ const correctAudio = new Audio('Audio/battleship.wav')
 const gameStatus = document.getElementById('H3')
 /*------Event Listeners------*/
 
-// document.querySelector('section.div').addEventListener('click', onClick);
 startBtn.addEventListener('click', render)
 resetBtn.addEventListener('click', init)
 nxtBtn.addEventListener('click', ()=> {
@@ -73,7 +72,6 @@ function reset(){
     while (answersElement.firstChild){
         answersElement.removeChild(answersElement.firstChild)
     }
-    
 }
 
 function render(){
@@ -116,6 +114,7 @@ question.answers.forEach((answer)=> {
     answersElement.appendChild(button);
     });
 }
+
 function chooseAnswer(e){
 const buttonChose = e.target
 const correct = buttonChose.correct
