@@ -108,7 +108,7 @@ question.answers.forEach((answer)=> {
     if (answer.correct){
         button.correct = answer.correct;   
     }
-    button.addEventListener('click', chooseAnswer);
+    button.addEventListener('click', getWinner);
     answersElement.appendChild(button);
     });
 }
@@ -130,7 +130,7 @@ element.classList.remove('wrong')
 //element.classList.remove('effect')
 }
 // winning logic
-function chooseAnswer(e){
+function getWinner(e){
 const buttonChose = e.target
 const correct = buttonChose.correct
 if (correct) {
