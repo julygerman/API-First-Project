@@ -12,6 +12,7 @@ html {
   }
   body{
       background-image: url(/Pictures/riddler-game-background.jpg);
+      height: 100vh;
   }
 .container{
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)) , var(--image-url) center center;
@@ -35,24 +36,7 @@ h1{
     color: greenyellow;
     text-shadow: 2px 2px black;
     text-emphasis: bold;
-}
-#firstH3{
-    position: absolute;
-    top: 5%;
-    left: 30%;
-    color: greenyellow;
-    text-shadow:2px 2px black;
-    text-emphasis: bold;
-    text-align: center;
-}
-#secondH3{
-    position: absolute;
-    top: 8%;
-    left: 25%;
-    color: greenyellow;
-    text-shadow:2px 2px black;
-    text-emphasis: bold;
-    text-align: center;
+    font-family: 'Nosifer', cursive;
 }
 
 p{
@@ -65,10 +49,15 @@ p{
     text-shadow: 2px 2px black;
     text-emphasis: bold;
 }
+#answerButtons{
+    margin-top: 10px;
+    width: 60%;
+    margin: 0 auto;
+}
 
 #resetButton{
     position: absolute;
-    top: 75%;
+    top: 700px;
     left: 46.5%;
     margin-top: 40px;
 }
@@ -89,13 +78,15 @@ p{
     border-color: chartreuse;
 }
 .life{
-    position: relative;
-    top: -150px;
-    height: auto;
-    width: 100px;
+    position: fixed;
+    top: 100px;
+    left: 825px;
+    height: 100px;
+    width: 150px;
     display: flexbox;
     flex-direction: column;
-    
+    background: rgba(0,0,0,0.4);
+    padding: 5px;
 }
 
 .hide{
@@ -114,20 +105,24 @@ p{
     
 }
 
-.button{
+button{
     color: black;
-    border: greenyellow;
     border-radius:  20px;
     padding: 20px;
     margin: 5px;
     font-size: 18px;
+    background-color: crimson;
+    color: snow;
     
-
 }
 
 #questions{
+    top: -300px;
     width: 60%;
     margin: 0 auto;
+    font-size: 30px;
+    font-family: 'Amatic SC', cursive;
+    font-weight: bold;
 }
 
 #startMessage{
@@ -136,13 +131,6 @@ p{
     position: relative;
     top: 350px;
     left: 0px;
-}
-#score{
-    text-align: center;
-    align-items: center;
-    position: fixed;
-    top: 700px;
-    left: 920px;
 }
 #noLives{
     position: fixed;
@@ -162,11 +150,12 @@ p{
     text-align: center;
     align-items: center;
     position: relative;
-    top: -100px;
+    top: -250px;
     color: greenyellow;
     text-shadow: 2px 2px black;
     text-emphasis: bold;
     font-size: 30px;
+    font-family: 'Covered By Your Grace', cursive;
 }
 @media(max-width: 854px){
 
