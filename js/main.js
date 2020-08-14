@@ -113,6 +113,23 @@ question.answers.forEach((answer)=> {
     });
 }
 
+function setStatusClass(element, correct){
+    resetStatus(element)
+    scoreEl.innerText = score
+    if (correct){
+        element.classList.add('correct')
+    } else {
+        element.classList.add('wrong')
+        // i can add an effect
+    }
+}
+
+function resetStatus(element){
+element.classList.remove('correct')
+element.classList.remove('wrong')
+//element.classList.remove('effect')
+}
+
 function chooseAnswer(e){
 const buttonChose = e.target
 const correct = buttonChose.correct
@@ -166,23 +183,6 @@ if (correct) {
         gameAudio.currentTime = 0
         gameStatus.innerText = "What? You did it? You've must have cheated. There is no way you could beat me!"
      }
-}
-
-function setStatusClass(element, correct){
-    resetStatus(element)
-    scoreEl.innerText = score
-    if (correct){
-        element.classList.add('correct')
-    } else {
-        element.classList.add('wrong')
-        // i can add an effect
-    }
-}
-
-function resetStatus(element){
-element.classList.remove('correct')
-element.classList.remove('wrong')
-//element.classList.remove('effect')
 }
 
 function displayLives(){
