@@ -62,6 +62,33 @@ scoreEl.classList.add('hide')
 score = 0
 }
 
+function render(){
+    gameAudio.play()
+    gameAudio.volume = 0.4
+    startBtn.classList.add('hide')
+    startContent.classList.add('hide')
+    sortQuestions = questions.sort(() => questions.length)
+    currentQuestionsIndex = 0
+    wrongAnswer = 0
+    score = score
+    scoreEl.innerText = score
+    scoreEl.classList.add('hide')
+    setNextQuestion()
+    contentElement.classList.remove('hide')
+    wonMessage.classList.add('hide')
+    endGame.classList.add('hide')
+    thirdlife.classList.remove('hide')
+    secondLife.classList.add('hide')
+    lastLife.classList.add('hide')
+    fatality.classList.add('hide')
+    gameStatus.innerText = "I, Edward Nigma, have placed a dazzling selection of questions. an you solve them all? Will you solve all my riddles will you save these pathetic heroes?"
+}
+
+function setNextQuestion(){
+    reset()
+    displayQuestion(sortQuestions[currentQuestionsIndex])
+}
+
 function reset(){
     resetStatus(document.body)
     nxtBtn.classList.add('hide')
@@ -70,33 +97,6 @@ function reset(){
     while (answersElement.firstChild){
         answersElement.removeChild(answersElement.firstChild)
     }
-}
-
-function render(){
-gameAudio.play()
-gameAudio.volume = 0.4
-startBtn.classList.add('hide')
-startContent.classList.add('hide')
-sortQuestions = questions.sort(() => questions.length)
-currentQuestionsIndex = 0
-wrongAnswer = 0
-score = score
-scoreEl.innerText = score
-scoreEl.classList.add('hide')
-setNextQuestion()
-contentElement.classList.remove('hide')
-wonMessage.classList.add('hide')
-endGame.classList.add('hide')
-thirdlife.classList.remove('hide')
-secondLife.classList.add('hide')
-lastLife.classList.add('hide')
-fatality.classList.add('hide')
-gameStatus.innerText = "I, Edward Nigma, have placed a dazzling selection of questions. an you solve them all? Will you solve all my riddles will you save these pathetic heroes?"
-}
-
-function setNextQuestion(){
-    reset()
-    displayQuestion(sortQuestions[currentQuestionsIndex])
 }
 
 function displayQuestion(question){
