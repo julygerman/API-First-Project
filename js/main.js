@@ -7,8 +7,6 @@ let currentQuestionsIndex, sortQuestions;
 let wrongAnswer = 0 
 let score = 0
 
-
-
 /*------Cached Element References------*/
 const contentElement = document.getElementById('questionContent')
 const questionElement = document.getElementById('questions')
