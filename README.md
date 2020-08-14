@@ -52,6 +52,7 @@ https://supeeerrr-trivia.surge.sh
 ## Credit:
 I would like to thank each and every person that was involved in helping me create this especially my instructors Ben, David and Shahzad. I would also like to give credit to the wonderful people and their creations:
 
+- BSacco0674 - Inspiration for the Game
 - seanmorrissey96 - https://freesound.org/people/seanmorrissey96/
 - Jim Carrey Online(Audio Files) - http://www.jimcarreyonline.com
 - tommccann - https://freesound.org/people/tommccann/
