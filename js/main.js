@@ -33,6 +33,7 @@ const gameStatus = document.getElementById('H3')
 
 startBtn.addEventListener('click', render)
 resetBtn.addEventListener('click', init)
+// Functionality for my next button
 nxtBtn.addEventListener('click', ()=> {
     buzzerAudio.pause()
     buzzerAudio.currentTime = 0
@@ -42,7 +43,7 @@ nxtBtn.addEventListener('click', ()=> {
 });
 /*------Functions------*/
 init()
-
+// Reset game 
 function init(){
 startBtn.classList.remove('hide')
 startContent.classList.remove('hide')
@@ -57,11 +58,10 @@ contentElement.classList.add('hide')
 questionElement.classList.remove('hide')
 answersElement.classList.remove('hide')
 gameStatus.classList.remove('hide')
-//gameStatus.innerText = "I, Edward Nigma, have placed a dazzling selection of questions. an you solve them all? Will you solve all my riddles will you save these pathetic heroes?"
 scoreEl.classList.add('hide')
 score = 0
 }
-
+// Functionality for my Start button/Game
 function render(){
     gameAudio.play()
     gameAudio.volume = 0.4
@@ -83,12 +83,12 @@ function render(){
     fatality.classList.add('hide')
     gameStatus.innerText = "I, Edward Nigma, have placed a dazzling selection of questions. an you solve them all? Will you solve all my riddles will you save these pathetic heroes?"
 }
-
+// Display Next question
 function setNextQuestion(){
     reset()
     displayQuestion(sortQuestions[currentQuestionsIndex])
 }
-
+// Hide next button and remove the previous answers from the buttons
 function reset(){
     resetStatus(document.body)
     nxtBtn.classList.add('hide')
@@ -98,7 +98,7 @@ function reset(){
         answersElement.removeChild(answersElement.firstChild)
     }
 }
-
+// Display Question and add answers to the buttons
 function displayQuestion(question){
 questionElement.innerText = question.question;
 question.answers.forEach((answer)=> {
@@ -112,7 +112,7 @@ question.answers.forEach((answer)=> {
     answersElement.appendChild(button);
     });
 }
-
+// add correct element to buttons
 function setStatusClass(element, correct){
     resetStatus(element)
     scoreEl.innerText = score
@@ -123,13 +123,13 @@ function setStatusClass(element, correct){
         // i can add an effect
     }
 }
-
+// remove class element for buttons
 function resetStatus(element){
 element.classList.remove('correct')
 element.classList.remove('wrong')
 //element.classList.remove('effect')
 }
-
+// winning logic
 function chooseAnswer(e){
 const buttonChose = e.target
 const correct = buttonChose.correct
@@ -184,7 +184,7 @@ if (correct) {
         gameStatus.innerText = "What? You did it? You've must have cheated. There is no way you could beat me!"
      }
 }
-
+// Lives function/ Losing Function
 function displayLives(){
     if (wrongAnswer === 0) {
         lastLife.classList.add('hide')
@@ -221,7 +221,7 @@ function displayLives(){
         youLoseAudio.volume = 0.09
     } 
 }
-
+// Question Array
  const questions = [
      {
          question: "My civilian name is Barry Allen. I'm a police scientist. My alter ego only has one power, but what DC writers and artists did with that one power was something to behold. Despite my power, I was usually late for appointments in my civilian identity. Who am I?",
